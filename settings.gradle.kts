@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GreetingsApp"
-include(":app")
+rootProject.name = "AndroidPlayground"
+include(":greetingsapp")
  
