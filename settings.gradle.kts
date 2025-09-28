@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "AndroidPlayground"
 include(":greetingsapp")
 include(":counterapp")
+include(":unitconverterapp")
