@@ -23,3 +23,4 @@ rootProject.name = "AndroidPlayground"
 include(":greetingsapp")
 include(":counterapp")
 include(":unitconverterapp")
+include(":luckynumber")
