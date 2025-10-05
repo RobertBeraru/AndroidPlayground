@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/counterapp" />
+            <option value="$PROJECT_DIR$/frenchteacherapp" />
             <option value="$PROJECT_DIR$/greetingsapp" />
             <option value="$PROJECT_DIR$/luckynumber" />
             <option value="$PROJECT_DIR$/unitconverterapp" />
