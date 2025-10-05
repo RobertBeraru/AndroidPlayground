@@ -13,7 +13,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button btnBlack, btnGreen, btnPurple, btnRed, btnYellow;
     ProgressBar progressBar;
@@ -64,78 +65,60 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        btnBlack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
-                        R.raw.noir);
-                mediaPlayer.start();
-                if (isBlackClicked){
-                    progress = progress + 20;
-                    progressBar.setProgress(progress);
-                    isBlackClicked = false;
 
-                }
+        btnBlack.setOnClickListener(this);
+        btnGreen.setOnClickListener(this);
+        btnPurple.setOnClickListener(this);
+        btnRed.setOnClickListener(this);
+        btnYellow.setOnClickListener(this);
+    }
+
+    public void PlaySounds(int id){
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
+                id);
+        mediaPlayer.start();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int clickedBtnId = v.getId();
+        
+        if (clickedBtnId == R.id.btnBlack){
+            if (isBlackClicked){
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isBlackClicked = false;
+
             }
-        });
-
-        btnGreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
-                        R.raw.vert);
-                mediaPlayer.start();
-                if (isGreenClicked){
-                    progress = progress + 20;
-                    progressBar.setProgress(progress);
-                    isGreenClicked = false;
-                }
+        PlaySounds(R.raw.noir);
+        } else if (clickedBtnId == R.id.btnGreen) {
+            if (isGreenClicked){
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isGreenClicked = false;
             }
-        });
-
-        btnPurple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
-                        R.raw.violet);
-                mediaPlayer.start();
-                if (isPurpleClicked) {
-                    progress = progress + 20;
-                    progressBar.setProgress(progress);
-                    isPurpleClicked = true;
-                }
+        PlaySounds(R.raw.vert);
+        } else if (clickedBtnId == R.id.btnPurple) {
+            if (isPurpleClicked) {
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isPurpleClicked = true;
             }
-        });
-
-        btnRed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
-                        R.raw.rouge);
-                mediaPlayer.start();
-                if (isRedClicked) {
-                    progress = progress + 20;
-                    progressBar.setProgress(progress);
-                    isRedClicked = true;
-                }
+        PlaySounds(R.raw.violet);
+        } else if (clickedBtnId == R.id.btnRed) {
+            if (isRedClicked) {
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isRedClicked = true;
             }
-        });
-
-        btnYellow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
-                        R.raw.jaune);
-                mediaPlayer.start();
-                if (isYellowClicked) {
-                    progress = progress + 20;
-                    progressBar.setProgress(progress);
-                    isYellowClicked = true;
-                }
+            PlaySounds(R.raw.rouge);
+        } else if (clickedBtnId == R.id.btnYellow) {
+            if (isYellowClicked) {
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isYellowClicked = true;
             }
-        });
-
-
-
+            PlaySounds(R.raw.jaune);
+        }
     }
 }

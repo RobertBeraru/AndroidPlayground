@@ -16,13 +16,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnBlack, btnGreen, btnPurple, btnRed, btnYellow;
     private ProgressBar progressBar;
     private Spinner spinner;
 
-    private int progress1 = 0;
+    private int progress = 0;
     private boolean isBlackClicked = true, isGreenClicked = true,
             isPurpleClicked = true, isRedClicked = true, isYellowClicked = true;
 
@@ -69,56 +69,59 @@ public class MainActivity2 extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
+        btnBlack.setOnClickListener(this);
+        btnGreen.setOnClickListener(this);
+        btnPurple.setOnClickListener(this);
+        btnRed.setOnClickListener(this);
+        btnYellow.setOnClickListener(this);
 
-        btnBlack.setOnClickListener(v -> {
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.schwarz);
-            mp.start();
-            if (isBlackClicked) {
-                progress1 += 20;
-                progressBar.setProgress(progress1);
+    }
+    public void PlaySounds(int id){
+        MediaPlayer mediaPlayer = MediaPlayer.create(getApplicationContext(),
+                id);
+        mediaPlayer.start();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int clickedBtnId = v.getId();
+
+        if (clickedBtnId == R.id.btnBlack){
+            if (isBlackClicked){
+                progress = progress + 20;
+                progressBar.setProgress(progress);
                 isBlackClicked = false;
+
             }
-        });
-
-        btnGreen.setOnClickListener(v -> {
-                    MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.grun);
-                    mp.start();
-                    if (isGreenClicked) {
-                        progress1 += 20;
-                        progressBar.setProgress(progress1);
-                        isGreenClicked = false;
-                    }
-        });
-
-        btnPurple.setOnClickListener(v -> {
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.lila);
-            mp.start();
+            PlaySounds(R.raw.schwarz);
+        } else if (clickedBtnId == R.id.btnGreen) {
+            if (isGreenClicked){
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isGreenClicked = false;
+            }
+            PlaySounds(R.raw.grun);
+        } else if (clickedBtnId == R.id.btnPurple) {
             if (isPurpleClicked) {
-                progress1 += 20;
-                progressBar.setProgress(progress1);
-                isPurpleClicked = false;
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isPurpleClicked = true;
             }
-        });
-
-        btnRed.setOnClickListener(v -> {
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.rot);
-            mp.start();
+            PlaySounds(R.raw.lila);
+        } else if (clickedBtnId == R.id.btnRed) {
             if (isRedClicked) {
-                progress1 += 20;
-                progressBar.setProgress(progress1);
-                isRedClicked = false;
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isRedClicked = true;
             }
-        });
-
-        btnYellow.setOnClickListener(v -> {
-            MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.gelb);
-            mp.start();
+            PlaySounds(R.raw.rot);
+        } else if (clickedBtnId == R.id.btnYellow) {
             if (isYellowClicked) {
-                progress1 += 20;
-                progressBar.setProgress(progress1);
-                isYellowClicked = false;
+                progress = progress + 20;
+                progressBar.setProgress(progress);
+                isYellowClicked = true;
             }
-        });
-
+            PlaySounds(R.raw.gelb);
+        }
     }
 }
