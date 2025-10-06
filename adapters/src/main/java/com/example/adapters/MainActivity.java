@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
 
         //2- Data Source: String Array
-        String[] countries = {"Romania", "Greece", "Bulgaria", "United Kingdom", "United States of America", "Saudi Arabia", "France"};
+        String[] countries = {"Romania", "Greece", "Bulgaria", "United Kingdom", "United States of America", "Saudi Arabia", "France", "Hungary", "Brazil", "Denmark" };
 
         //3- Adapter: acts as a bridge between the 'data source' the 'AdapterView'
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1,
-                countries);
+        MyCustomAdapter adapter = new MyCustomAdapter(this,countries);
+
+
 
         //4- Link ListView with the Adapter
         listView.setAdapter(adapter);
