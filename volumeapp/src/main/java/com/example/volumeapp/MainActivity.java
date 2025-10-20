@@ -61,14 +61,14 @@ public class MainActivity extends AppCompatActivity {
                     case "Cylinder":
                         intent = new Intent(MainActivity.this, Cylinder.class);
                         break;
-//                    case "Prism":
-//                        intent = new Intent(MainActivity.this, Prism.class);
-//                        break;
-//                    case "Cube":
-//                        intent = new Intent(MainActivity.this, Cube.class);
-//                        break;
+                    case "Prism":
+                        intent = new Intent(MainActivity.this, Prism.class);
+                        break;
+                    case "Cube":
+                        intent = new Intent(MainActivity.this, Cube.class);
+                        break;
                     default:
-                        return; // no action for unknown shape name
+                        return;
                 }
                 startActivity(intent);
             }

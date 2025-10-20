@@ -9,6 +9,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPlayground">
         <activity
+            android:name=".Cube"
+            android:exported="false" />
+        <activity
+            android:name=".Prism"
+            android:exported="false" />
+        <activity
             android:name=".Cylinder"
             android:exported="false" />
         <activity
